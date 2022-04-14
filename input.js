@@ -11,6 +11,10 @@ if(input === "w") conection.write("Move: up");
 if(input === "a") conection.write("Move: left");
 if(input === "s") conection.write("Move: down");
 if(input === "d") conection.write("Move: right");
+
+if(input === '0' ) conection.write("Say: fart");
+if(input === '1' ) conection.write("Say: doge");
+if(input === '2' ) conection.write("Say: kitty");
 };
 
 // setup interface to handle user input from stdin

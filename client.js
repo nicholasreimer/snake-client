@@ -16,11 +16,12 @@
 //import the .net module and let me use it in my file     
 
 const net = require("net");
+const { IP, PORT } = require("./constants");
 
 const connect = function () {
   const conn = net.createConnection({  
-    host: '0.tcp.ngrok.io',
-    port: 11496,
+    host: IP,
+    port: PORT
   });
 
 // interpret incoming data as text
