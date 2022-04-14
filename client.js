@@ -19,18 +19,36 @@ const net = require("net");
 
 const connect = function () {
   const conn = net.createConnection({  
-    host: '165.227.47.243',
-    port: 50541,
+    host: '0.tcp.ngrok.io',
+    port: 11496,
   });
 
 // interpret incoming data as text
   conn.setEncoding("utf8");
 
+// receive messages from the server to our console
   conn.on('data', (messageFromServer) => {
   console.log('server says:', messageFromServer);
   });
 
+// receive a message in the console when we successfully connect to the server
+  conn.on('data', () => {
+  console.log(`You are connected to the server:`);
+  });
+
+// add your name as soon as you connect
+  conn.on('connect', () => {
+  conn.write('Name: NR') 
+  });
+
+  /*
+  // snake moves up, server recognizes the string
+  conn.on('connect', () => {
+  conn.write("Move: up") 
+  });
+  */
+
   return conn;
 };
 
-module.exports = {connect}
+module.exports = {connect};
